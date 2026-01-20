@@ -40,14 +40,22 @@ python -m venv venv
 source venv/bin/activate   # On Linux/Mac
 venv\Scripts\activate      # On Windows
 
-#Install dependencies
 pip install -r requirements.txt
+## Prepare data
+Download the TMDB 5000 dataset (tmdb_5000_movies.csv and tmdb_5000_credits.csv) and place them in a data/ folder.
 
-streamlit
-pandas
-numpy
-scikit-learn
-nltk
-requests
+##Generate pickle files
+Run the preprocessing notebook to create movie_dict.pkl and similarity.pkl:
 
+import pickle
+
+# Save movies DataFrame as dict
+pickle.dump(new_df.to_dict(), open('movie_dict.pkl','wb'))
+
+# Save similarity matrix
+pickle.dump(similarity, open('similarity.pkl','wb'))
+
+## 🚀 Run the App
+
+streamlit run app.py
 
