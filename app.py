@@ -4,10 +4,11 @@ import pandas as pd
 import requests
 import os
 import gzip
+from dotenv import load_dotenv
 
 # Fetch poster from TMDB API
 def fetch_poster(movie_id):
-    api_key = "a27779fccb907cb9f39e55f352d97ded"
+    api_key = os.getenv("TMDB_API_KEY")
     url = f"https://api.themoviedb.org/3/movie/{movie_id}?api_key={api_key}&language=en-US"
     response = requests.get(url)
 
